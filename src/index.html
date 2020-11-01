@@ -1,0 +1,26 @@
+---
+layout: "base.njk"
+---
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+
+        <div class="card" style="width: 18rem;">
+          <div class="card-header">
+            Security
+          </div>
+          <ul class="list-group list-group-flush">
+            {% for item in collections.security %}
+              <li class="list-group-item"><a href="{{ item.url}}"> {{item.data.name}}</a></li>  
+            {% endfor %}
+            <li class="list-group-item">Password Generator</li>
+            <li class="list-group-item">Dapibus ac facilisissfds in</li>
+            <li class="list-group-item">Vestibulum at eros </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
