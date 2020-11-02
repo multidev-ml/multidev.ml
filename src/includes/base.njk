@@ -31,6 +31,7 @@ title : "MultiDev"
 
   <!-- Bootstrap core CSS -->
   <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/css/sticky-footer.css" rel="stylesheet">
  
  
 </head>
@@ -53,13 +54,13 @@ title : "MultiDev"
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about">About</a>
+            <a class="nav-link" href="/about">About</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Services</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact-us">Contact</a>
+            <a class="nav-link" href="/contact-us">Contact</a>
           </li>
         </ul>
       </div>
@@ -67,18 +68,30 @@ title : "MultiDev"
   </nav>
 
 
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 text-center">
 
 
 {{ content | safe }}
 
 
 
-
+    </div>
+  </div>
+</div>
 
 
   <div id="extra">
     
   </div>
+
+
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">Place sticky footer content here.</span>
+      </div>
+    </footer>
 
   <!-- Bootstrap core JavaScript -->
   <script src="/assets/jquery/jquery.slim.min.js"></script>

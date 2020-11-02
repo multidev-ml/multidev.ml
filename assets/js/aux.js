@@ -60,4 +60,9 @@ function setCookie(cname, cvalue, exdays) {
 }
 
 
+function showSugestionForm(page){
+  
+
+}
+
 

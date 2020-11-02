@@ -3,24 +3,24 @@ layout: "base.njk"
 ---
 
   <!-- Page Content -->
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 text-center">
 
-        <div class="card" style="width: 18rem;">
-          <div class="card-header">
-            Security
-          </div>
-          <ul class="list-group list-group-flush">
-            {% for item in collections.security %}
-              <li class="list-group-item"><a href="{{ item.url}}"> {{item.data.name}}</a></li>  
-            {% endfor %}
-            <li class="list-group-item">Password Generator</li>
-            <li class="list-group-item">Dapibus ac facilisissfds in</li>
-            <li class="list-group-item">Vestibulum at eros </li>
-          </ul>
-        </div>
+
+<div class="col-md-12 m-3 justify-content-around flex-grow-1 shadow flex-row d-flex align-items-start flex-wrap" >
+	{%- for tag in collections.tagList -%}
+    <div class="card m-2" style="width: 18rem;">
+      <div class="card-header">
+        {{ tag | makeUppercase}}
       </div>
+      <ul class="list-group list-group-flush">
+        {%- for item in collections[tag] -%}
+                <li class="list-group-item"><a href="{{ item.url}}"> {{item.data.name}}</a></li> 
+        {%- endfor -%}
+      </ul>
     </div>
-  </div>
+		
+	{%- endfor -%}
 
+</div>
+
+
+       
