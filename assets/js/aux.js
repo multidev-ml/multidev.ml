@@ -3,7 +3,8 @@
 
 
 $(document).ready(function(){
-    if (getCookie("gpdr") == "" ) {
+   
+    if (getCookie("gpdr") == "" && document.noscript === undefined ) {
       let div = '<div id="gpdrmodal" class="modal fade">' +
                   '<div class="modal-dialog">' +
                       '<div class="modal-content">' +
@@ -61,7 +62,7 @@ function setCookie(cname, cvalue, exdays) {
 
 
 function showSugestionForm(page){
-  
+
 
 }
 

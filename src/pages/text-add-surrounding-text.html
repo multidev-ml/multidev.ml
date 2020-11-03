@@ -8,5 +8,52 @@ version : 0.01
 ---
 
 <div class="row" >
+    <div class="col-md-12 p-2">
+          <div class="form-group">
+            <label for="text_to_be_worked">Text to be worked</label>
+            <textarea class="form-control" id="text_to_be_worked" rows="4"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="before_text">Before Text</label>
+            <input type="text" class="form-control" id="before_text" placeholder="Text Before">
+          </div>
+          <div class="form-group">
+            <label for="after_text">After Text</label>
+            <input type="text" class="form-control" id="after_text" placeholder="Text After">
+          </div>
+          <div class="form-group text-center" >
+            <input class="btn btn-primary m-2 text-center" type="button" id="workit" value="Work It" onclick="workit()">
+          </div>
+          <div class="form-group">
+            <label for="worked_text">Worked Text</label>
+            <textarea class="form-control" id="worked_text" rows="4"></textarea>
+          </div>
+        </div>
 
 </div>
+
+<script language="javascript">
+    let text_to_be_worked = document.getElementById("text_to_be_worked")
+    let before_text = document.getElementById("before_text")
+    let after_text = document.getElementById("after_text")
+    let worked_text = document.getElementById("worked_text")
+
+    function workit(){
+        let finalTXT = ""
+        
+        before_text = before_text.value
+        after_text = after_text.value
+
+
+        text_to_be_worked.value.split("\n").forEach(e =>{
+            if (typeof e === "string"){ 
+                
+                finalTXT += before_text + e + after_text + "\n"
+            }
+        }
+
+        )
+        worked_text.value = finalTXT
+    }
+
+</script>

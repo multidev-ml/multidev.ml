@@ -55,14 +55,24 @@ title : "OverFload"
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
+          </li>          
           <li class="nav-item">
             <a class="nav-link" href="/contact-us">Contact</a>
           </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Policies
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              {% for item in collections.policy %}
+                <a class="dropdown-item" href="{{item.url}}">{{item.data.name}}</a>  
+              {% endfor %}
+              
+            </div>
+          </li>
+
         </ul>
+        
       </div>
     </div>
   </nav>
@@ -89,7 +99,16 @@ title : "OverFload"
 
     <footer class="footer">
       <div class="container">
-        <span class="text-muted">Place sticky footer content here.</span>
+        <div class="col-md-12 text-center d-md-flex align-items-center">
+          <ul class="nav d-flex justify-content-center">
+            {% for item in collections.main %}
+              <li class="nav-item"> <a class="nav-link active" href="{{item.url}}">{{item.data.name}}</a> </li>  
+            {% endfor %}
+            
+            
+          </ul> <i class="d-block fa fa-stop-circle fa-3x mx-auto text-primary"></i>
+          <p class="mb-0 py-1">©2020 Overfload All rights reserved</p>
+        </div>
       </div>
     </footer>
 
