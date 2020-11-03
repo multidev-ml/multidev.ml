@@ -21,8 +21,16 @@ version : 0.01
             <label for="after_text">After Text</label>
             <input type="text" class="form-control" id="after_text" placeholder="Text After">
           </div>
+          <div class="form-group">
+            <label for="templates">Templates</label>
+                <select class="form-control" id="templates" onchange="templateChanged()">
+                   
+                </select>
+            </div>
           <div class="form-group text-center" >
-            <input class="btn btn-primary m-2 text-center" type="button" id="workit" value="Work It" onclick="workit()">
+            <input class="btn btn-danger m-2 text-center" type="button" id="workit" value="Work It" onclick="workIt()">
+            <input class="btn btn-warning m-2 text-center" type="button" id="selectworkedtext" value="Select Worked Text" onclick="selectText('worked_text')">
+            <input class="btn btn-warning m-2 text-center" type="button" id="copyworkedtext" value="Copy Worked Text" onclick="copyText('worked_text')">
           </div>
           <div class="form-group">
             <label for="worked_text">Worked Text</label>
@@ -37,23 +45,76 @@ version : 0.01
     let before_text = document.getElementById("before_text")
     let after_text = document.getElementById("after_text")
     let worked_text = document.getElementById("worked_text")
+    let templates = document.getElementById("templates").options
 
-    function workit(){
+    let templateValues  =
+            [
+                {
+                    "text"  : "JS String \" \" + ",
+                    "value" : "jsstring",
+                    "prefix" : "\"",
+                    "suffix" : "\" + "
+                },
+                {
+                    "text"  : "JS String 2 \' \' + ",
+                    "value" : "jsstring2",
+                    "prefix" : "\'",
+                    "suffix" : "\' + "
+                },
+                {
+                    "text"  : "JS Array String \" \", ",
+                    "value" : "jsstringarray",
+                    "prefix" : "\"",
+                    "suffix" : "\","
+                },
+                {
+                    "text"  : "PHP String \" \".",
+                    "value" : "phpstring",
+                    "prefix" : "\"",
+                    "suffix" : "\"."
+                }
+            ];
+
+    function workIt(){
         let finalTXT = ""
         
-        before_text = before_text.value
-        after_text = after_text.value
+        before_text_value = before_text.value
+        after_text_value = after_text.value
 
 
         text_to_be_worked.value.split("\n").forEach(e =>{
             if (typeof e === "string"){ 
                 
-                finalTXT += before_text + e + after_text + "\n"
+                finalTXT += before_text_value + e + after_text_value + "\n"
             }
         }
 
         )
         worked_text.value = finalTXT
     }
+
+    function templateChanged(){
+        let value = document.getElementById("templates").value
+
+        templateValues.forEach(e=>{
+            if (e.value == value){
+                before_text.value = e.prefix
+                after_text.value = e.suffix
+            }
+        })
+    }
+
+    
+
+    function loadTemplates(){
+        templateValues.forEach(e =>{
+            templates.add(
+                new Option(e.text,e.value)
+            )
+        })
+        document.getElementById("templates").selectedIndex = -1
+    }
+
+    document.addEventListener("DOMContentLoaded", loadTemplates);
 
 </script>
