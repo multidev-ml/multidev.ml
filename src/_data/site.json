@@ -1,5 +1,6 @@
 {
     "name": "Overfload",
     "url": "https://www.overfload.ml",
-    "mainTag" : "main"
+    "mainTag" : "main", 
+    "author": "CriticalSetup"
   }
